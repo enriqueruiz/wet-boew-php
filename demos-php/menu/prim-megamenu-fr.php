@@ -1,0 +1,270 @@
+<?php
+	/*
+	 * uncomment for AJAX replacement test
+	 */
+?>
+<!-- TODO: Add php variable for data-ajax-fetch file -->
+<nav role="navigation" id="wb-sm" data-ajax-fetch="<?php echo $_SITE['wb_core_dist_folder']?>/ajax/sitemenu-fr.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar"><h2><?php echo $_SITE['wb_sitenav_' . $_PAGE["lang1"]]; ?></h2>
+<div class="row">
+	<ul class="list-inline menu">
+		<li><a href="/wet-boew/index-fr.html">WET project</a></li>
+		<li><a href="https://github.com/wet-boew/wet-boew/wiki/Implementing-WET">Implement WET</a></li>
+		<li><a href="https://github.com/wet-boew/wet-boew/wiki/Contributor-guidelines">Contribute to WET</a></li>
+	</ul>
+</div>
+</div>
+</nav>
+
+<?php
+/*
+ * Comment out for AJax replacement test
+ *
+
+<ul class="mb-menu">
+<li><section><h3><a href="http://wet-boew.github.io/wet-boew/index-fr.html">Projet de la BOEW</a></h3><div class="mb-sm">
+<div class="span-2">
+<ul>
+<li><a href="https://github.com/wet-boew/wet-boew/">Page principale du projet</a></li>
+<li><a href="http://wet-boew.github.io/wet-boew/Licence-fr.html">Conditions r�gissant l'utilisation</a></li>
+<li><a href="http://wet-boew.github.io/wet-boew/demos/index-fr.html">Exemples pratiques</a></li>
+</ul>
+</div>
+<div class="clear"></div>
+<div class="mb-main-link"><a href="http://wet-boew.github.io/wet-boew/index-fr.html">Projet de la BOEW - Page principale</a></div>
+</div></section></li>
+<li><section><h3><a href="section2/index-fr.html">Section 2</a></h3><div class="mb-sm">
+<div class="span-2">
+<section><h4><a href="#">Section 2.1</a></h4>
+<ul>
+<li><a href="#">Article 2.1.1</a></li>
+<li><a href="#">Article 2.1.2</a></li>
+<li><a href="#">Article 2.1.3</a></li>
+<li><a href="#">Article 2.1.4</a></li>
+<li><a href="#">Article 2.1.5</a></li>
+<li><a href="#">Article 2.1.6</a></li>
+</ul>
+</section>
+</div>
+<div class="span-2">
+<section><h4><a href="section2/section22/index-fr.html">Section 2.2</a></h4>
+<ul>
+<li><a href="#">Article 2.2.1</a></li>
+<li><a href="#">Article 2.2.2</a>
+	<ul>
+	<li><a href="#">Article 2.2.2.1</a></li>
+	<li><a href="#">Article 2.2.2.2</a></li>
+	<li><a href="#">Article 2.2.2.3</a></li>
+	</ul>
+</li>
+<li><a href="#">Article 2.2.3</a></li>
+<li><a href="#">Article 2.2.4</a></li>
+<li><a href="#">Article 2.2.5</a></li>
+<li><a href="#">Article 2.2.6</a></li>
+<li><a href="#">Article 2.2.7</a></li>
+<li><a href="#">Article 2.2.8</a></li>
+</ul>
+</section>
+</div>
+<div class="clear"></div>
+<div class="mb-main-link"><a href="section2/index-fr.html">Section 2 - Page principale</a></div>
+</div></section></li>
+<li><section><h3><a href="#">Section 3</a></h3><div class="mb-sm">
+<div class="mb-highlight">
+<section><h4><a href="#">Foyer</a></h4>
+<ul>
+<li><a href="#">Lien 1</a></li>
+<li><a href="#">Lien 2</a></li>
+<li><a href="#">Lien 3</a></li>
+<li><a href="#">Lien 4</a></li>
+<li><a href="#">Lien 5</a></li>
+<li><a href="#">Lien 6</a></li>
+<li><a href="#">Lien 7</a></li>
+</ul>
+<div class="clear"></div>
+</section>
+</div>
+<div class="span-2">
+<section><h4><a href="#">Section 3.1</a></h4>
+<ul>
+<li><a href="#">Article 3.1.1</a></li>
+<li><a href="#">Article 3.1.2</a></li>
+<li><a href="#">Article 3.1.3</a></li>
+<li><a href="#">Article 3.1.4</a></li>
+<li><a href="#">Article 3.1.5</a></li>
+<li><a href="#">Article 3.1.6</a></li>
+</ul>
+</section>
+</div>
+<div class="span-2">
+<section><h4><a href="#">Section 3.2</a></h4>
+<ul>
+<li><a href="#">Article 3.2.1</a></li>
+<li><a href="#">Article 3.2.2</a></li>
+<li><a href="#">Article 3.2.3</a></li>
+<li><a href="#">Article 3.2.4</a></li>
+<li><a href="#">Article 3.2.5</a></li>
+<li><a href="#">Article 3.2.6</a></li>
+<li><a href="#">Article 3.2.7</a></li>
+<li><a href="#">Article 3.2.8</a></li>
+</ul>
+</section>
+</div>
+<div class="span-2">
+<section><h4><a href="#">Section 3.3</a></h4>
+<ul>
+<li><a href="#">Article 3.3.1</a></li>
+<li><a href="#">Article 3.3.2</a></li>
+<li><a href="#">Article 3.3.3</a></li>
+</ul>
+</section>
+</div>
+<div class="clear"></div>
+<div class="mb-main-link"><a href="#">Section 3 - Page principale</a></div>
+</div></section></li>
+<li><section><h3><a href="section4/index-fr.html">Section 4</a></h3><div class="mb-sm">
+<div class="span-2">
+<section><h4><a href="#">Section 4.1</a></h4>
+<ul>
+<li><a href="#">Article 4.1.1</a></li>
+<li><a href="#">Article 4.1.2</a></li>
+<li><a href="#">Article 4.1.3</a></li>
+</ul>
+</section>
+<section><h4><a href="#">Section 4.2</a></h4>
+<ul>
+<li><a href="#">Article 4.2.1</a></li>
+<li><a href="#">Article 4.2.2</a></li>
+<li><a href="#">Article 4.2.3</a></li>
+<li><a href="#">Article 4.2.4</a></li>
+</ul>
+</section>
+</div>
+<div class="span-2">
+<section><h4><a href="section4/section43/index-fr.html">Section 4.3</a></h4>
+<ul>
+<li><a href="#">Article 4.3.1</a></li>
+<li><a href="#">Article 4.3.2</a></li>
+<li><a href="#">Article 4.3.3</a></li>
+<li><a href="#">Article 4.3.4</a></li>
+</ul>
+</section>
+<section><h4><a href="#">Section 4.4</a></h4>
+<ul>
+<li><a href="#">Article 4.4.1</a></li>
+<li><a href="#">Article 4.4.2</a></li>
+<li><a href="#">Article 4.4.3</a></li>
+</ul>
+</section>
+</div>
+<div class="clear"></div>
+<div class="mb-main-link"><a href="#">Section 4 - Page principale</a></div>
+</div></section></li>
+<li><div><a href="#">Section 5</a></div></li>
+<li><section><h3><a href="#">Section 6</a></h3><div class="mb-sm">
+<div class="mb-highlight">
+<section><h4><a href="#">Foyer</a></h4>
+<ul>
+<li><a href="#">Lien 1</a></li>
+<li><a href="#">Lien 2</a></li>
+<li><a href="#">Lien 3</a></li>
+<li><a href="#">Lien 4</a></li>
+<li><a href="#">Lien 5</a></li>
+<li><a href="#">Lien 6</a></li>
+<li><a href="#">Lien 7</a></li>
+</ul>
+<div class="clear"></div>
+</section>
+</div>
+<div class="span-2">
+<section><h4><a href="#">Section 6.1</a></h4>
+<ul>
+<li><a href="#">Article 6.1.1</a></li>
+<li><a href="#">Article 6.1.2</a></li>
+<li><a href="#">Article 6.1.3</a></li>
+<li><a href="#">Article 6.1.4</a></li>
+<li><a href="#">Article 6.1.5</a></li>
+<li><a href="#">Article 6.1.6</a></li>
+</ul>
+</section>
+</div>
+<div class="span-2">
+<section><h4><a href="#">Section 6.2</a></h4>
+<ul>
+<li><a href="#">Article 6.2.1</a></li>
+<li><a href="#">Article 6.2.2</a></li>
+<li><a href="#">Article 6.2.3</a></li>
+<li><a href="#">Article 6.2.4</a></li>
+<li><a href="#">Article 6.2.5</a></li>
+<li><a href="#">Article 6.2.6</a></li>
+<li><a href="#">Article 6.2.7</a></li>
+<li><a href="#">Article 6.2.8</a></li>
+</ul>
+</section>
+</div>
+<div class="span-2">
+<section><h4><a href="#">Section 6.3</a></h4>
+<ul>
+<li><a href="#">Article 6.3.1</a></li>
+<li><a href="#">Article 6.3.2</a></li>
+<li><a href="#">Article 6.3.3</a></li>
+</ul>
+</section>
+</div>
+<div class="span-2">
+<section><h4><a href="#">Section 6.4</a></h4>
+<ul>
+<li><a href="#">Article 6.4.1</a></li>
+<li><a href="#">Article 6.4.2</a></li>
+<li><a href="#">Article 6.4.3</a></li>
+<li><a href="#">Article 6.4.4</a></li>
+<li><a href="#">Article 6.4.5</a></li>
+<li><a href="#">Article 6.4.6</a></li>
+</ul>
+</section>
+</div>
+<div class="clear"></div>
+<div class="mb-main-link"><a href="#">Section 6 - Page principale</a></div>
+</div></section></li>
+<li><section><h3><a href="#">Section 7</a></h3><div class="mb-sm">
+<div class="span-2">
+<section><h4><a href="#">Section 7.1</a></h4>
+<ul>
+<li><a href="#">Article 7.1.1</a></li>
+<li><a href="#">Article 7.1.2</a></li>
+<li><a href="#">Article 7.1.3</a></li>
+<li><a href="#">Article 7.1.4</a></li>
+<li><a href="#">Article 7.1.5</a></li>
+<li><a href="#">Article 7.1.6</a></li>
+</ul>
+</section>
+</div>
+<div class="span-2">
+<section><h4><a href="#">Section 7.2</a></h4>
+<ul>
+<li><a href="#">Article 7.2.1</a></li>
+<li><a href="#">Article 7.2.2</a></li>
+<li><a href="#">Article 7.2.3</a></li>
+<li><a href="#">Article 7.2.4</a></li>
+<li><a href="#">Article 7.2.5</a></li>
+<li><a href="#">Article 7.2.6</a></li>
+<li><a href="#">Article 7.2.7</a></li>
+<li><a href="#">Article 7.2.8</a></li>
+</ul>
+</section>
+</div>
+<div class="span-2">
+<section><h4><a href="#">Section 7.3</a></h4>
+<ul>
+<li><a href="#">Article 7.3.1</a></li>
+<li><a href="#">Article 7.3.2</a></li>
+<li><a href="#">Article 7.3.3</a></li>
+</ul>
+</section>
+</div>
+<div class="clear"></div>
+<div class="mb-main-link"><a href="#">Section 7 - Page principale</a></div>
+</div></section></li>
+</ul>
+*/
+?>

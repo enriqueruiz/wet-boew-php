@@ -1,77 +1,57 @@
 <?php
-$_THEME_PATH_ = $_SERVER['DOCUMENT_ROOT'] . $_SITE['wb_php_dist_folder'] . $_SITE['wb_theme_folder'];
-
-//script if the browser is less than or equal to IE 8
-$_JS_LTE_IE8_ = '<script src="'.$_SITE['wb_core_dist_folder'] . $_SITE['wb_theme_folder'] .'/js/theme-ie-min.js"></script>';
-
-//script for if the browser is greater than IE 8
-$_JS_GT_IE8_ = '<script src="'.$_SITE['wb_core_dist_folder'] . $_SITE['wb_theme_folder'] .'/js/theme-min.js"></script>';
-		
-//use the content footers by default
-$_FOOT_START_INCLUDE_ = $_THEME_PATH_ . "/cont/foot-start.php";
-$_FOOT_INCLUDE_ = $_THEME_PATH_ . "/cont/foot-nav.php";
-if( $_PAGE['isserv'] == "1" ) {
-	//use the server footer if the isserv flag is set
-	$_FOOT_START_INCLUDE_ = $_THEME_PATH_ . "/serv/foot-start.php";
-	$_FOOT_INCLUDE_ = $_THEME_PATH_ . "/serv/foot-nav.php";
-} else if( $_PAGE['issplash'] == "1" ) {
-	//use the splash page footer if the issplash flag is set
-	$_FOOT_START_INCLUDE_ = $_THEME_PATH_ . "/sp-pe/foot-start.php";
-	$_FOOT_INCLUDE_ = $_THEME_PATH_ . "/sp-pe/foot-nav.php";
-}
-
-if( file_exists($_FOOT_START_INCLUDE_) ) {
-	include_once $_FOOT_START_INCLUDE_;
-}
-?>
-<div class="clear"></div>
-</div></div>
-<?php
-//if there's no secondary menu then the H2 element around the "Footer" gets the id="wb-nav" id
-//Otherwise the secondary menu gets it.
-$_FOOT_NAV_ = ' id="wb-nav"';
-
-if( isset($_PAGE['left_menu_gauche'])  && $_PAGE['left_menu_gauche']!='' && file_exists($_PAGE['left_menu_gauche'])) {
-	//clear the foot nav variable so it doesn't get added to the H2 in the footer below
-	$_FOOT_NAV_ = "";
-
-	echo '<div id="wb-sec"><div id="wb-sec-in"><nav role="navigation"><h2 id="wb-nav">'.$_SITE['wb_sec_'.$_PAGE['lang1']] .'</h2>' . "\n";
-	echo '<div class="wb-sec-def">' . "\n";
-	echo '<!-- SecNavStart -->' . "\n";
-
-	include_once $_PAGE['left_menu_gauche'];
+//$_INC_TYPE_ is used to determine if this is a splash page or if it's a standard content page
+$_INC_TYPE_ = 'cont';
+if( isset($_PAGE['issplash']) && $_PAGE['issplash'] == 1 ) {
+	$_INC_TYPE_ = 'sp-pe';
+	echo '</main>' .PHP_EOL;
 	
-	echo '<!-- SecNavEnd -->' . "\n";
-	echo '</div>' . "\n";
-	echo '</nav></div></div>' . "\n";
+} else {
+	$_INC_TYPE_ = 'cont';
+	$_MOD_TEXT_ = $_SITE['wb_doc_dates_'.$_PAGE['lang1']];
+    $_DATE_VERSION_TEXT_ = "<span>".$_PAGE['modified']."</span>";
+    if( $_PAGE['isapp'] == "1" ) {
+        $_MOD_TEXT_ = $_SITE['wb_doc_version_' . $_PAGE['lang1']];
+        $_DATE_VERSION_TEXT_ = $_PAGE['version'];
+    }
+	echo '    <dl id="wb-dtmd" role="contentinfo" property="dateModified">' .PHP_EOL;
+	echo '        <dt>' . $_SITE['wb_doc_dates_'.$_PAGE['lang1']] . '</dt>' .PHP_EOL;
+	echo '       <dd>' .PHP_EOL;
+	echo '            <time>' . $_DATE_VERSION_TEXT_. '</time>' .PHP_EOL;
+	echo '        </dd>' .PHP_EOL;
+	echo '    </dl>' .PHP_EOL;
+	echo '</main>' .PHP_EOL;
 
+	if( isset($_PAGE['left_menu_gauche']) && $_PAGE['left_menu_gauche']!='' && file_exists($_PAGE['left_menu_gauche'])) {
+
+        echo '<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">';
+		echo '<h2>'.$_SITE['wb_sec_'.$_PAGE['lang1']] .'</h2>' . "\n";
+		echo '<ul class="list-group menu list-unstyled">';
+                echo '<li>';
+        echo '<!-- SecNavStart -->' . "\n";
+
+        include_once $_PAGE['left_menu_gauche'];
+        
+        echo '<!-- SecNavEnd -->' . "\n";
+         	echo '</li>';
+                echo '</ul>';
+        echo '</nav>' . PHP_EOL;
+		echo '</div>';
+		echo '</div>';
+	}
 }
+	/* include theme specific footer if the theme specific foot.php file exists */
+	$_THEME_FOOT_FILE = $_SERVER['DOCUMENT_ROOT'].$_SITE['wb_php_dist_folder']."/".$_SITE['wb_theme']."/".$_INC_TYPE_."/foot.php";
+	if( file_exists($_THEME_FOOT_FILE ) ) {
+		include $_THEME_FOOT_FILE;
+	}
 ?>
-</div></div>
-
-<div id="wb-foot"><div id="wb-foot-in"><footer><h2<?php echo $_FOOT_NAV_; ?>><?php echo $_SITE['wb_foot_' .$_PAGE['lang1']] ;?></h2>
-<?php
-if( file_exists($_FOOT_INCLUDE_) ) {
-	include_once $_FOOT_INCLUDE_;
-}
-?>
-</footer>
-
-</div></div></div>
-
 <!-- ScriptsStart -->
-<script src="<?php echo $_SITE['wb_core_dist_folder']; ?>/js/settings.js"></script>
-<!--[if lte IE 8]>
-<?php /* theme specific include */ echo $_JS_LTE_IE8_ ?>
 
-<script src="<?php echo $_SITE['wb_core_dist_folder']; ?>/js/pe-ap-ie-min.js"></script>
-<script src="<?php echo $_SITE['wb_core_dist_folder']; ?>/js/jquerymobile/jquery.mobile-ie.min.js"></script>
-<![endif]-->
-<!--[if gt IE 8]><!-->
-<?php /* theme specific include */ echo $_JS_GT_IE8_ ?>
-
-<script src="<?php echo $_SITE['wb_core_dist_folder']; ?>/js/pe-ap-min.js"></script>
-<script src="<?php echo $_SITE['wb_core_dist_folder']; ?>/js/jquerymobile/jquery.mobile.min.js"></script>
+<!--[if gte IE 9 | !IE ]><!-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="<?php echo $_SITE['wb_core_dist_folder']; ?>/js/wet-boew.min.js"></script>
 <!--<![endif]-->
+<!--[if lt IE 9]><script src="<?php echo $_SITE['wb_core_dist_folder']; ?>/js/ie8-wet-boew2.min.js"></script><![endif]-->
+
 <!-- ScriptsEnd -->
 

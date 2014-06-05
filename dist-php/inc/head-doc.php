@@ -24,28 +24,28 @@ for($i=1; isset($_PAGE['lang'.$i]); $i++ ) {
 }
 ?>
 <!DOCTYPE html>
-<!--[if IE 7]><html lang="<?php echo $_SITE['wb_meta_' .$_PAGE['lang1'] ]?>" class="no-js ie7"><![endif]-->
-<!--[if IE 8]><html lang="<?php echo $_SITE['wb_meta_' .$_PAGE['lang1'] ]?>" class="no-js ie8"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="<?php echo $_SITE['wb_meta_' . $_PAGE['lang1']]; ?>"><![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="<?php echo $_SITE['wb_meta_' . $_PAGE['lang1']]; ?>" class="no-js">
+<html class="no-js" lang="<?php echo $_SITE['wb_meta_' . $_PAGE['lang1']]; ?>">
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+<<<<<<< HEAD
 wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html -->
 <title><?php 
 if( $_PAGE['isarchived'] == "1" ){
 	echo $_SITE['wb_archive_title_'.$_PAGE['lang1']];
 }
 echo $_PAGE_TITLE_;?></title>
+=======
+wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title><?php echo $_PAGE_TITLE_;?></title>
+>>>>>>> 76fac622b44b9b5811e3001855e477f23a1a0d4d
 
-<link rel="shortcut icon" href="<?php echo $_SITE['wb_core_dist_folder'] . $_SITE['wb_theme_folder']; ?>/images/favicon.ico" />
+<link rel="shortcut icon" href="<?php echo $_SITE['wb_core_dist_folder']?>/assets/favicon.ico" />
 <?php 
-/* no robots if this is a server page*/
-if( $_PAGE['isserv'] == "1" ) { ?>
-<meta name="robots" content="noindex, nofollow, noarchive" />
-<?php } /* end of no robots*/
-
+$_META_LANG_ = "";
 //print the available title metadata for this page
 for($i=1; isset($_PAGE['lang'.$i]); $i++ ) {
 	if( isset($_PAGE['title_'.$_PAGE['lang'.$i]]) ) {
@@ -68,9 +68,9 @@ for($i=1; isset($_PAGE['lang'.$i]); $i++ ) {
 	}
 }
 ?>
-<?php if( $_PAGE['isserv'] != "1" ) { ?>
-<meta name="dcterms.issued" title="W3CDTF" content="<?php echo $_PAGE['issued']; ?>" />
-<meta name="dcterms.modified" title="W3CDTF" content="<?php echo $_PAGE['modified']; ?>" />
-<?php } ?>
 
+<<<<<<< HEAD
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+=======
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+>>>>>>> 76fac622b44b9b5811e3001855e477f23a1a0d4d

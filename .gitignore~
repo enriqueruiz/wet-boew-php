@@ -1,0 +1,11 @@
+*.class
+*.pyc
+*.pyo
+dist/
+demos/
+.project
+.pydevproject
+.settings/
+_notes/
+*/_notes/
+wet-boew/

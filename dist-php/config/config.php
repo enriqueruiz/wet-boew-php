@@ -1,6 +1,10 @@
 <?php
+<<<<<<< HEAD
 
 	$_SITE['wb_version'] = '4.0.1';
+=======
+	
+>>>>>>> 76fac622b44b9b5811e3001855e477f23a1a0d4d
 	/*
 	 * Add all of the default variables that may be null to prevent PHP warnings 
 	 * and errors for undefined values
@@ -10,18 +14,13 @@
 	$_PAGE['isserv'] = (!isset($_PAGE['isserv']) ? 0 : $_PAGE['isserv']);
 	$_PAGE['signin'] = (!isset($_PAGE['signin']) ? 0 : $_PAGE['signin']);
 	$_PAGE['signout'] = (!isset($_PAGE['signout']) ? 0 : $_PAGE['signout']);
-	$_META_LANG = (!isset($_META_LANG) ? '' : $_META_LANG); // for head-end.php
-	$_META_LANG_ = (!isset($_META_LANG_) ? '' : $_META_LANG_); // for head-doc.php
 	$_PAGE['nolang'] = (!isset($_PAGE['nolang']) ? 0 : $_PAGE['nolang']);
 	$_PAGE['nosearch'] = (!isset($_PAGE['nosearch']) ? 0 : $_PAGE['nosearch']);
 	$_PAGE['nositemenu'] = (!isset($_PAGE['nositemenu']) ? 0 : $_PAGE['nositemenu']);
 	$_PAGE['nobcrumb'] = (!isset($_PAGE['nobcrumb']) ? 0 : $_PAGE['nobcrumb']);
 	$_PAGE['isarchived'] = (!isset($_PAGE['isarchived']) ? 0 : $_PAGE['isarchived']);
-	 	 
-	/* 
-	 * Set only non-language specific variables in this file 
-	 */
-		
+	$_PAGE['bodytag'] = (!isset($_PAGE['bodytag']) ? '' : $_PAGE['bodytag']);
+
 	/*
 	 * Define the path to the wet core distribution folder. For development from
 	 * github the deploy folder is /wet-boew-dist and the php deploy folder is 
@@ -32,23 +31,24 @@
 	 * out or remove these lines.
 	 */
 	
-	$_SITE['wb_core_dist_folder'] = $_SITE['wb_core_root'] . "/dist";
+	$_SITE['wb_core_dist_folder'] = $_SITE['wb_core_root'];
 	
 	//define the path to the wet php distribution folder
 	//for development the deploy folder is /wet-boew-php
-	$_SITE['wb_php_dist_folder'] = $_SITE['wb_php_root'] . "/dist-php";
+	$_SITE['wb_php_dist_folder'] = $_SITE['wb_php_root'] . "dist-php";
 	
 	//define the locations of the demo menus
 	$_MENU_LOCATION_ = $_SERVER['DOCUMENT_ROOT'] . $_SITE['wb_php_root'] . "/demos-php/menu";
 
 	//modify in a custom config to point to your sites search implementation
-	$_SITE['wb_search_file'] = $_SERVER['DOCUMENT_ROOT'] . $_SITE['wb_php_root'] . "/demos-php/search" . $_SITE['wb_theme_folder'] ."/search.php";
+	$_SITE['wb_search_file'] = $_SERVER['DOCUMENT_ROOT'] . $_SITE['wb_php_root'] . "/demos-php/search/search.php";
 	
 	//modify to point to yours sites bread crumb implementation
-	$_SITE['wb_bcrumb_file'] = $_SERVER['DOCUMENT_ROOT'] . $_SITE['wb_php_dist_folder'] . "/inc/bt_fa.php"; 
+	$_SITE['wb_bcrumb_file'] = $_SERVER['DOCUMENT_ROOT'] . $_SITE['wb_php_dist_folder'] . "/inc/breadcrumb-generator.php"; 
 
-	$_SITE['wb_archive_warn_icon'] = $_SITE['wb_core_dist_folder']."/js/images/archived/warning.gif";
-	
+	//include the theme specific configureation
+	include $_SERVER['DOCUMENT_ROOT'] . $_SITE['wb_php_dist_folder'] .'/config/'.$_SITE['wb_theme'].'/config.php';
+
 	//if $_PAGE['lang1'] is set assume the user set the languages
 	//before including the config file. If so add only the required
 	//configration files.
@@ -57,5 +57,12 @@
 			include_once "config-" . $_PAGE['lang'.$i] .".php";
 		}
 	}
+<<<<<<< HEAD
 		
 ?>
+=======
+	
+	//Modify the language selection link to point to whatever script suits your site.
+	$_SITE['wb_cmblang_href_en'] = $_SITE['wb_cmblang_href_fr'] = "/" .$_SITE['wb_php_dist_folder'] . "/langselect/lang.php"; 		
+?>
+>>>>>>> 76fac622b44b9b5811e3001855e477f23a1a0d4d

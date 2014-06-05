@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 	//set the theme folder, this could be set programaticlly, but
 	//this configuration file is unfortunately differnt for each
 	//theme anyway.
@@ -135,3 +136,14 @@
 	$_SITE['gcwu_langselect_fra'] = "Liens de sélection de langue"; 
 	$_SITE['gcwu_hidebtarrow'] = "1"; 
 ?>
+=======
+	//if $_PAGE['lang1'] is set assume the user set the languages
+	//before including the config file. If so add only the required
+	//configration files.
+	if( isset($_PAGE['lang1']) ) {
+		for( $i=1; isset($_PAGE['lang'.$i]); $i++ ) {
+			include_once "config-" . $_PAGE['lang'.$i] .".php";
+		}
+	}
+?>
+>>>>>>> 76fac622b44b9b5811e3001855e477f23a1a0d4d
