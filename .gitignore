@@ -10,3 +10,9 @@ _notes/
 */_notes/
 wet-boew/
 demos-php/config/config.php
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+
